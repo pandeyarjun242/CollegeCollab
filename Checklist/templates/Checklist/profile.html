@@ -1,0 +1,209 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'super.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">    <script src="https://use.fontawesome.com/977b0e453b.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>View activities</title>
+  </head>
+	<style media="screen">
+		body{
+			height:auto;
+			overflow-y:auto;
+		}
+		.main-content{
+			overflow-y:auto;
+		}
+		table{
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top:20px;
+			overflow-y:auto;
+		}
+		table, th, td {
+			padding:10px;
+		}
+		a{
+			color:#866ec7!important;
+		}
+		th{
+			background-color:#866ec7!important;
+			color:white;
+		}
+		h4{
+			margin-top: 20px;
+			font-size: 15px;
+			color:gray;
+		}
+		a{
+			margin-top: 20px!important;
+			font-style: italic;
+		}
+		h5{
+			font-size:25px;
+			color:gray;
+			margin-top:20px;
+		}
+	</style>
+  <body>
+    {% if user == profile_user or user == profile_user.studentprofile.counselor.user %}
+  <div class="main-content">
+    {% if user.counselorprofile.name %}
+  <a href="{% url 'counselorHome' %}"><i style="margin-bottom: 20px;float: right;"class="fa fa-home fa-2x"></i></a>
+  <a href="#"></a>
+  {% else %}
+<a href="{% url 'studentHome' %}"><i style="margin-bottom: 20px;float: right;"class="fa fa-home fa-2x"></i></a>
+{% endif %}
+
+			<h3> View profile </h3>
+      {% if user.counselorprofile.name %}
+      <a href="{% url 'counselorView' profile_user  %}"> <button type="button" class="btn btn-success" name="button">View Full Activities List</button> </a>
+      {% endif %}
+      <br>
+			<h5> Essays </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Draft Name</th>
+						<th> Link </th>
+						<th> Deadline </th>
+					</tr>
+          {% for e in profile_user.essays.all %}
+          <tr>
+            <td> {{e.name}} </td>
+            <td> {{e.link}} </td>
+            <td>{{e.date}} </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td> Oops No Essays yet! </td>
+            <td> N/A </td>
+            <td>N/A </td>
+          </tr>
+          {% endfor %}
+			  </table>
+			</div>
+			<h5> Activities </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Activity type </th>
+						<th> Name and position </th>
+						<th> Hours/week </th>
+						<th> Weeks/year </th>
+						<th> Grades of participation </th>
+					</tr>
+          {% for a in profile_user.activities.all %}
+          <tr>
+            <td> {{a.category}} </td>
+						<td> {{a.position}} </td>
+						<td> {{a.hourperweek}} </td>
+						<td> {{a.weeksperyear}} </td>
+						<td> {{a.grades}} </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td> Oops Nothing yet! </td>
+						<td> N/A </td>
+						<td>  N/A </td>
+						<td>  N/A</td>
+						<td>  N/A </td>
+          </tr>
+          {% endfor %}
+			  </table>
+			</div>
+			<h5> Recommenders </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th>  Name</th>
+						<th> Email </th>
+						<th> Post </th>
+					</tr>
+          {% for l in profile_user.lors.all %}
+					<tr>
+						<td> {{l.recommender}} </td>
+						<td> {{l.email}} </td>
+						<td>{{l.post}} </td>
+
+					</tr>
+          {% empty %}
+          <tr>
+						<td> Oops No Recommendations yet! </td>
+						<td> N/A </td>
+						<td>N/A </td>
+					</tr>
+          {% endfor %}
+			  </table>
+			</div>
+			<h5> Scores </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Test type</th>
+						<th> Date given </th>
+						<th> File </th>
+					</tr>
+          {% for t in profile_user.tests.all%}
+					<tr>
+						<td> {{t.type}} </td>
+						<td> {{t.date}} </td>
+						<td> <a href="{{t.transcripts.url}}"> Here </a> </td>
+
+					</tr>
+          {% empty %}
+          <tr>
+						<td> Oops no Score Yet! </td>
+						<td> N/A </td>
+						<td> <a href="#"> N/A </a> </td>
+
+					</tr>
+          {% endfor %}
+			  </table>
+			</div>
+			<h5> View transcripts </h5>
+			<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+						<th> Grade </th>
+
+						<th> File </th>
+					</tr>
+          {% for u in profile_user.transcripts.all %}
+					<tr>
+						<td> {{u.grade}} </td>
+						<td> <a href="{{u.transcripts}"> Here </a> </td>
+					</tr>
+          {% empty %}
+          <tr>
+						<td> Oops no Transcript Yet! </td>
+						<td> <a href=""> N/A </a> </td>
+					</tr>
+          {% endfor %}
+			  </table>
+			</div>
+		</div>
+    {% else %}
+    <h1> You are not eligible to view this page</h1>
+    <!-- <span>{{ user.username }}</span>
+    <span>{{ profile_user.studentprofile.counselor.user }} </span> -->
+    {% endif %}
+		<!-- Site footer -->
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
