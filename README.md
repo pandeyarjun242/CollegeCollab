@@ -42,6 +42,10 @@
 
 During the pandemic it was a hassle to fill in college applications online. So this is a portal that helps students store all their data in one place and also interact with their counsellors.
 
+## Greetings Note
+
+Hello, I hope you like my attempt at solving a problem that I, and several other peers of mine faced. I tried to create an effective solution that I think is potentially scale to impact thousands of students across the world. I hope you like it
+
 ### Features:
 * Allows students to store essays, activities, transcripts, recommendations, scores and everything related to college apps.
 * Allows curation of college lists, deadlines. Can interact with counsellors smoothly.
