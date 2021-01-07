@@ -95,12 +95,11 @@ WSGI_APPLICATION = 'CommonChecklist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        # 'USER': 'samyakbvs',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'dd4q0dh4sbli2h',
+        'USER': 'ifunxcehxyqwbd',
+        'PASSWORD': '32d0168af35d58c168096164e0da104d7bc7f18182b29cc3a7dcd8168968936c',
+        'HOST': 'ec2-52-205-61-60.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
 
