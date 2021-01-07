@@ -65,6 +65,8 @@ Majorly built with Django - Python. Uses JS. Uses a small API for the college-li
 <!-- GETTING STARTED -->
 ## Getting Started
 
+If you want to run locally then see steps below otherwise visit: https://morning-garden-05285.herokuapp.com/
+
 Just follow the steps below to launch the project/
 
 ### Prerequisites
