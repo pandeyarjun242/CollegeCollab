@@ -30,6 +30,7 @@
   <p align="center">
     One-stop portal for students and counsellors
     <br />
+  Category: Most Practical Scalable. Best Original. Also a first-time hack so...
   </p>
 </p>
 
