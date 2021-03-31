@@ -90,14 +90,14 @@ Create a virtual environment
 
 ### Running the Project
 
-1. Go to the directory/clone now with the environment
+1. Enter the Directory after activating environments
+2. Run:
+```
+pip install -r requirements.txt
+```
 
-```
-pip install psycopg2
-```
 2. Run python manage.py migrate
 3. Then python manage.py makemigrations
-4. Finall python manage.py makemigrations
 
 
 
