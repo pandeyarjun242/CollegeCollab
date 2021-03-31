@@ -90,7 +90,7 @@ Create a virtual environment
 
 ### Running the Project
 
-1. Enter the directory in the terminal after activating environments
+1. Enter the directory in the terminal after activating environment.
 2. Run:
 ```
 pip install -r requirements.txt
