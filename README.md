@@ -90,14 +90,17 @@ Create a virtual environment
 
 ### Running the Project
 
-1. Enter the Directory after activating environments
+1. Enter the directory in the terminal after activating environments
 2. Run:
 ```
 pip install -r requirements.txt
 ```
-3. Run python manage.py migrate
-4. Then python manage.py makemigrations
-
+```
+python manage.py migrate
+```
+```
+python manage.py makemigrations
+```
 
 
 
