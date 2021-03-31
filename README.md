@@ -102,19 +102,6 @@ python manage.py makemigrations
 
 
 
-
-```
-pip install -r requirements.txt
-```
-```
-python manage.py migrate
-```
-```
-python manage.py makemigrations
-```
-
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
