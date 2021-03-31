@@ -85,13 +85,24 @@ Create a virtual environment
   ```
   ```
   source env/bin/activate
-  ```
   
+  ```
+### Running with a Local Database.
 
-### Running the Project
+1. Open this file: Directory/CommonChecklist/settings.py
+2. Enter the directory in the terminal after activating environment.
+3. Uncomment Lines 88-93.
+4. Run the following commands in the terminal again from the root repository:
+```
+python manage.py migrate
+```
+```
+python manage.py makemigrations
+```
 
-1. Enter the directory in the terminal after activating environment.
-2. Run:
+
+
+
 ```
 pip install -r requirements.txt
 ```
