@@ -95,9 +95,8 @@ Create a virtual environment
 ```
 pip install -r requirements.txt
 ```
-
-2. Run python manage.py migrate
-3. Then python manage.py makemigrations
+3. Run python manage.py migrate
+4. Then python manage.py makemigrations
 
 
 
